@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/admin', function () {
+    return view('layouts.admin');
+});
+
 Route::controller(CompetenciasController::class)->group(function(){
     Route::get('competencias', 'index');
     Route::get('competencias/create', 'create');
