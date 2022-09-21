@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\CompetenciasController;
-use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Routing\Route as RoutingRoute;
+use App\Http\Controllers\CompetenciasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,16 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('layouts.app');
 });
 
-Route::get('/admin', function () {
-    return view('layouts.admin');
-});
-
-Route::controller(CompetenciasController::class)->group(function(){
-    Route::get('competencias', 'index');
-    Route::get('competencias/create', 'create');
-    Route::get('competencias/{competencia}', 'show');
-});
+// Route::get('/admin', function () {
+//     return view('layouts.admin');
+// });
 
