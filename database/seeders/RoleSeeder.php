@@ -18,13 +18,19 @@ class RoleSeeder extends Seeder
     public function run()
     {
         
-        $role1 = Role::create(['name' => 'Admin']);
-        $role2 = Role::create(['name' => 'Profesor']);
-        $role3 = Role::create(['name' => 'Competidor']);
+        $role1 = Role::firstOrCreate(['name' => 'Admin']);
+        $role2 = Role::firstOrCreate(['name' => 'Dueño']);
+        $role3 = Role::firstOrCreate(['name' => 'Profesor']);
+        $role4 = Role::firstOrCreate(['name' => 'Competidor']);
 
-        $permission = Permission::create(['name' => 'competencias.index'])->assignRole($role1);
-        $permission = Permission::create(['name' => 'competencias.create'])->assignRole($role1);
-        $permission = Permission::create(['name' => 'competencias.edit'])->assignRole($role1);
-        $permission = Permission::create(['name' => 'competencias.destroy'])->assignRole($role1);    
+        $permission = Permission::create(['name' => 'users.index', 'description' => 'Listar Usuarios'])->assignRole($role1,$role2,$role3);
+        $permission = Permission::create(['name' => 'users.create', 'description' => 'Crear Usuarios'])->assignRole($role1,$role2,$role3);
+        $permission = Permission::create(['name' => 'users.edit', 'description' => 'Editar Usuarios'])->assignRole($role1,$role2,$role3);
+        $permission = Permission::create(['name' => 'users.destroy', 'description' => 'Eliminar Usuarios'])->assignRole($role1,$role2,$role3);
+
+        $permission = Permission::create(['name' => 'competencias.index', 'description' => 'Listar Competencias'])->assignRole($role1);
+        $permission = Permission::create(['name' => 'competencias.create', 'description' => 'Crear Competencias'])->assignRole($role1);
+        $permission = Permission::create(['name' => 'competencias.edit', 'description' => 'Editar Competencias'])->assignRole($role1);
+        $permission = Permission::create(['name' => 'competencias.destroy', 'description' => 'Eliminar Competencias'])->assignRole($role1);    
     }
 }

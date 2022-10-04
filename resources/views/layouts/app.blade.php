@@ -13,11 +13,18 @@
     @include('layouts.favicon')
     <!-- Custom fonts for this template-->
     <link href="{{asset('libs/sbadmin/vendor/fontawesome/css/all.min.css')}}"  rel="stylesheet" type="text/css">
+    {{-- <link href="{{asset('libs/sbadmin/vendor/fontawesome/css/solid.css')}}" rel="stylesheet"> --}}
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     @yield('estilos')
     <!-- Custom styles for this template-->
     <link href="{{asset('libs/sbadmin/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('libs/sbadmin/js/plugins/select2/select2.min.css') }}">
+    <!-- Sweet alert Css-->
+    <link href="{{ asset('libs/sbadmin/js/plugins/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
+
+
     {{-- @include('layouts.iconos') --}}
+
 </head>
 
 <body id="page-top">
@@ -41,7 +48,7 @@
 
                 <!-- Contenedor-->
                 <div class="container-fluid">
-
+                    @include('layouts.flash')
                     @yield('contenido')
 
                 </div>
@@ -94,9 +101,12 @@
 
     <!-- Custom scripts for all pages-->
    <script src="{{asset('libs/sbadmin/js/sb-admin-2.min.js')}}"></script>
+   <script src="{{ asset('libs/sbadmin/js/plugins/select2/select2.min.js') }}"></script>
+   <script src="{{ asset('libs/sbadmin/js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
 
    <!-- Page level plugins -->
    <script src="{{asset('libs/sbadmin/vendor/chart.js/Chart.min.js')}}"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
    <!-- Page level custom scripts -->
     {{-- <script src="{{asset('libs/sbadmin/js/demo/chart-area-demo.js')}}"></script>
@@ -106,6 +116,7 @@
         $(function () {
             $('[data-toggle="tooltip"]').tooltip();
         });
+        $(".select2").select2();
     </script>
 </body>
 

@@ -16,7 +16,7 @@ class="nav-link" esto es para que queden los menus desplegados.
             {{-- <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="{{ asset('favicon/favicon.png') }}"> --}}
             {{-- <i class="fas fa-laugh-wink"></i> --}}
         </div>
-        <div class="sidebar-brand-text mx-3">TKD <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">TKD {{-- <sup>2</sup> --}}</div>
     </a>
 
     <!-- Divider -->
@@ -24,9 +24,10 @@ class="nav-link" esto es para que queden los menus desplegados.
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+        <a class="nav-link" href="{{ route('home') }}">
+            {{-- <i class="fas fa-fw fa-tachometer-alt"></i> --}}
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span></a>
     </li>
 
     <!-- Divider -->
@@ -34,13 +35,18 @@ class="nav-link" esto es para que queden los menus desplegados.
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        ADMIN
+        ADMINISTRADOR
     </div>
 
     <li class="nav-item" id="class_usuarios">
         <a class="nav-link" href="{{ route('users.index') }}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fa-solid fa-users-gear"></i>
             <span>Usuarios</span></a>
+    </li>
+    <li class="nav-item" id="class_roles">
+        <a class="nav-link" href="{{ route('admin.roles.index') }}">
+            <i class="fa-solid fa-user-police"></i>
+            <span>Roles</span></a>
     </li>
 
     <!-- Nav Item - Pages Collapse Menu -->

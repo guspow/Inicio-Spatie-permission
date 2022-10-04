@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use Illuminate\Routing\Route as RoutingRoute;
 use App\Http\Controllers\CompetenciasController;
 
@@ -16,10 +17,12 @@ use App\Http\Controllers\CompetenciasController;
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('auth.login');
 });
 
 // Route::get('/admin', function () {
 //     return view('layouts.admin');
 // });
-
+Route::group(['middleware' => 'auth'], function(){
+Route::get('home', [HomeController::class, 'home'])->name('home');
+});

@@ -23,5 +23,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'guspow@hotmail.com',
             'password' => bcrypt('familia1')
         ])->assignRole('Admin');
+
+        \App\Models\User::factory(100)->create();
     }
 }
